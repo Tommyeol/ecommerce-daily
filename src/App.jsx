@@ -1,21 +1,22 @@
 import { useState } from "react";
-import logo from "./logo.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Cuerpo from "./components/Cuerpo/Cuerpo";
 import NavBar from "./components/NavBar/NavBar";
 import Titulo from "./components/ItemListContainer/ItemListContainer";
 import ItemCount from "./components/ItemCount/ItemCount";
+import ItemDetailContainer from "./helpers/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const onAdd = (cant) => {
+    console.log(cant);
+  };
 
   return (
     <>
       <NavBar />
       <Titulo />
-      <Cuerpo />
-      <ItemCount />
+      <ItemCount initial={1} stock={10} onAdd={onAdd} />
+      <ItemDetailContainer />
     </>
   );
 }

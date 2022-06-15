@@ -1,18 +1,31 @@
 import { useState } from "react";
 
-function ItemCount() {
-  const [count, modificarCount] = useState(0);
+const ItemCount = ({ initial, stock, onAdd }) => {
+  const [count, setCount] = useState(initial);
 
-  function agregar() {
-    modificarCount(count + 1);
+  function suma() {
+    if (count < stock) {
+      setCount(count + 1);
+    }
+  }
+  function resta() {
+    if (count > 1) {
+      setCount(count - 1);
+    }
   }
 
+  const agregar = () => {
+    onAdd(count);
+  };
+
   return (
-    <div>
-      <h2>La cantidad de visitas hasta el momento = {count}</h2>
-      <button onClick={agregar}>+</button>
-    </div>
+    <>
+      <div>{count}</div>
+      <button onClick={suma}>sumar</button>
+      <button onClick={resta}>restar</button>
+      <button onClick={agregar}>agregar</button>
+    </>
   );
-}
+};
 
 export default ItemCount;

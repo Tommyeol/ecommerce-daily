@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFetch } from "../../helpers/itemDescription";
+import { getFetch } from "../../helpers/ItemDescription/itemDescription";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);

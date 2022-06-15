@@ -29,11 +29,33 @@ let productos = [
   },
 ];
 
-export const getFetch = () => {
+export const getFetch = (id) => {
   // acciones
   return new Promise((resolve, reject) => {
     setTimeout(() => {
+      // if (id) {
+      //   resolve(productos.find((prod) => prod.id === id));
+      // } else {
+      //   resolve(productos);
+      // }
       resolve(productos);
+    }, 3000);
+  });
+};
+
+let producto = {
+  id: "1",
+  nombre: "Protector SPF 50+ Beige",
+  descripcion: "Protector Solar Soleil Extreme",
+  foto: "https://dailyderm.com/wp-content/uploads/2018/05/Soleil-SPF-50-Beige-Dailyderm-250x250.jpg",
+  precio: 379,
+};
+
+export const getFetchOne = () => {
+  // acciones
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(producto);
     }, 3000);
   });
 };
