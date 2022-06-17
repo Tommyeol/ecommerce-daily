@@ -1,11 +1,22 @@
-import CartWidget from "../CartWidget/CartWidget";
+import Cart from "../Cart/Cart";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Dailyderm
+        <a className="navbar-brand" href="#home">
+          <img
+            src="https://mail.google.com/mail/u/0?ui=2&ik=400e2ed626&attid=0.8&permmsgid=msg-f:1735809838817246247&th=1816d5da08547c27&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ_u4RIVJ8mofVAt0QBYaWBi1cBnewQ02iV1HfraEPHkj7RTeFbN733BLfLddukWqYl4Za9_5Va6oZG8ApiKFN6uJnFchNzM62vjEokcQlgWEUkpQXwlJhvlqbw&disp=emb"
+            alt=""
+            className="img-fluid"
+          />
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "perfecto" : "perfecto")}
+          >
+            Inicio
+          </NavLink>
         </a>
         <button
           className="navbar-toggler"
@@ -21,26 +32,31 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Productos
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="#productos"
+              >
+                <NavLink to="/descripcion/gel"> Geles</NavLink>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Blog
+              <a className="nav-link" href="#blog">
+                <NavLink to="descripcion/crema">Cremas</NavLink>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="#about">
                 Sobre Nosotros
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link disabled">Disabled</a>
-            </li>
           </ul>
         </div>
-        <CartWidget />
+        <Link to="cart">
+          <button className="btn btn-outline-warning">
+            <Cart />
+          </button>
+        </Link>
       </div>
     </nav>
   );
