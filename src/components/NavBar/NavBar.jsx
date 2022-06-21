@@ -5,19 +5,19 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#home">
+        <a className="nav-link active" aria-current="page" href="#categoria">
           <img
             src="https://mail.google.com/mail/u/0?ui=2&ik=400e2ed626&attid=0.8&permmsgid=msg-f:1735809838817246247&th=1816d5da08547c27&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ_u4RIVJ8mofVAt0QBYaWBi1cBnewQ02iV1HfraEPHkj7RTeFbN733BLfLddukWqYl4Za9_5Va6oZG8ApiKFN6uJnFchNzM62vjEokcQlgWEUkpQXwlJhvlqbw&disp=emb"
             alt=""
             className="img-fluid"
           />
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? "perfecto" : "perfecto")}
-          >
-            Inicio
-          </NavLink>
         </a>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "perfecto" : "perfecto")}
+        >
+          Inicio
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -35,24 +35,19 @@ function NavBar() {
               <a
                 className="nav-link active"
                 aria-current="page"
-                href="#productos"
+                href="#categoria"
               >
-                <NavLink to="/descripcion/gel"> Geles</NavLink>
+                <NavLink to="/categoria/Gel"> Gel</NavLink>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#blog">
-                <NavLink to="descripcion/crema">Cremas</NavLink>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#about">
-                Sobre Nosotros
+              <a className="nav-link" href="#categoria">
+                <NavLink to="categoria/Crema">Crema</NavLink>
               </a>
             </li>
           </ul>
         </div>
-        <Link to="cart">
+        <Link to="/cart">
           <button className="btn btn-outline-warning">
             <Cart />
           </button>

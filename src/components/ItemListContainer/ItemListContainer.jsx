@@ -6,31 +6,27 @@ const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { descripcionId } = useParams();
+  const { categoriaId } = useParams();
 
-  console.log(descripcionId);
+  console.log(categoriaId);
 
   useEffect(() => {
-    if (descripcionId) {
+    if (categoriaId) {
       getFetch()
         .then((resp) => {
           setProductos(
-            resp.filter((producto) => producto.descripcion === descripcionId)
+            resp.filter((producto) => producto.categoria === categoriaId)
           );
           setLoading(false);
         })
         .catch((err) => console.log(err));
     } else {
       getFetch()
-        .then((resp) => {
-          setProductos(resp);
-          setLoading(false);
-        })
-        .catch((err) => console.log(err));
+        .then((resp) => setProductos(resp))
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
     }
-  }, []);
-
-  console.log(productos);
+  });
 
   return (
     <div>
@@ -41,10 +37,10 @@ const ItemListContainer = () => {
           <div className="col-md-2 p-1" key={prod.id}>
             <div className="card w-100 mt-2">
               <div className="card-header">
-                {`${prod.nombre} - ${prod.descripcion}`}
+                {`${prod.nombre} - ${prod.categoria}`}
               </div>
               <div className="card-body">
-                {<img src={prod.foto} alt="" className="w+50" />}
+                {<img src={prod.foto} alt="" className="w-50" />}
               </div>
               <div>Precio ${prod.precio}</div>
               <div className="card-footer">

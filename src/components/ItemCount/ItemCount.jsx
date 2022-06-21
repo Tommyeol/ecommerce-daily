@@ -20,10 +20,20 @@ const ItemCount = ({ initial, stock, onAdd }) => {
 
   return (
     <>
-      <div>{count}</div>
-      <button onClick={suma}>sumar</button>
-      <button onClick={resta}>restar</button>
-      <button onClick={agregar}>agregar</button>
+      <div className="container m-5 w-25 border rounded border-3 border-primary">
+        <span className="alert alert-success w-100">{count}</span>
+        <div>
+          <button onClick={suma} className="btn btn-primary w-50">
+            +
+          </button>
+          <button onClick={resta} className="btn btn-danger w-50">
+            -
+          </button>
+          <button onClick={agregar} className="btn btn-success w-100">
+            agregar
+          </button>
+        </div>
+      </div>
     </>
   );
 };
