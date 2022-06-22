@@ -4,7 +4,7 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { getFetch } from "../ItemDescription/itemDescription";
 
 const ItemDetailContainer = () => {
-  const [producto, setProducto] = useState({});
+  const [producto, setProducto] = useState(true);
 
   const { id } = useParams();
 

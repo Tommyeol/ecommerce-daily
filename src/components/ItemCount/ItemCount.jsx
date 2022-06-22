@@ -29,10 +29,10 @@ const ItemCount = ({ initial, stock, onAdd }) => {
           <button onClick={resta} className="btn btn-danger w-50">
             -
           </button>
-          <button onClick={agregar} className="btn btn-success w-100">
-            agregar
-          </button>
         </div>
+        <button onClick={agregar} className="btn btn-success w-100">
+          Agregar
+        </button>
       </div>
     </>
   );

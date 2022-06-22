@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 
 const ItemDetail = ({ producto }) => {
-  const { progreso, setProgreso } = useState();
+  const [progreso, setProgreso] = useState();
 
   const onAdd = (cant) => {
     console.log(cant);
