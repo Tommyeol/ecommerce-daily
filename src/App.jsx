@@ -15,24 +15,27 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Cart from "./components/Cart/Cart";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import CartContextProvider from "./components/CartContext/CartContext";
 
 function App() {
   return (
-    <div className="border border-3 border primary">
-      <Direcciones>
-        <NavBar />
-        <Routes>
-          <Route index path="/" element={<ItemListContainer />} />
-          <Route
-            path="/categoria/:categoriaId"
-            element={<ItemListContainer />}
-          />
-          <Route path="/detalle/:id" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </Direcciones>
-    </div>
+    <CartContextProvider>
+      <div className="border border-3 border primary">
+        <Direcciones>
+          <NavBar />
+          <Routes>
+            <Route index path="/" element={<ItemListContainer />} />
+            <Route
+              path="/categoria/:categoriaId"
+              element={<ItemListContainer />}
+            />
+            <Route path="/detalle/:id" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Direcciones>
+      </div>
+    </CartContextProvider>
   );
 }
 

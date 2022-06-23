@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
+import { CartContext } from "../CartContext/CartContext";
 
-const ItemDetail = ({ producto }) => {
-  const [progreso, setProgreso] = useState();
+function ItemDetail({ producto }) {
+  const { progreso, setProgreso } = useState();
+  const { AddToCart } = useContext(CartContext);
 
   const onAdd = (cant) => {
-    console.log(cant);
-    setProgreso(cant);
+    AddToCart(producto, cant);
   };
 
   return (
@@ -35,6 +36,6 @@ const ItemDetail = ({ producto }) => {
       </div>
     </div>
   );
-};
+}
 
 export default ItemDetail;

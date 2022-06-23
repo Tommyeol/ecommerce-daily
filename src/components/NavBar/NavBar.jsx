@@ -32,18 +32,10 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a
-                className="nav-link active"
-                aria-current="page"
-                href="#categoria"
-              >
-                <NavLink to="/categoria/Gel"> Gel</NavLink>
-              </a>
+              <NavLink to="/categoria/Gel"> Gel</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#categoria">
-                <NavLink to="categoria/Crema">Crema</NavLink>
-              </a>
+              <NavLink to="categoria/Crema">Crema</NavLink>
             </li>
           </ul>
         </div>

@@ -1,14 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getFetch } from "../../helpers/ItemDescription/itemDescription";
 import { Link, useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const { categoriaId } = useParams();
-
-  console.log(categoriaId);
 
   useEffect(() => {
     if (categoriaId) {

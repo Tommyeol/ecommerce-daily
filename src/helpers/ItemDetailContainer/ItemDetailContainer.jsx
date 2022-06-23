@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../../components/CartContext/CartContext";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { getFetch } from "../ItemDescription/itemDescription";
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(true);
-
   const { id } = useParams();
-
-  console.log(id);
 
   useEffect(() => {
     getFetch(id)
