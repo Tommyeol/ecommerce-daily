@@ -4,7 +4,6 @@ import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../CartContext/CartContext";
 
 function ItemDetail({ producto }) {
-  const { progreso, setProgreso } = useState();
   const { AddToCart } = useContext(CartContext);
 
   const onAdd = (cant) => {
@@ -24,13 +23,7 @@ function ItemDetail({ producto }) {
         </div>
         <div className="row">
           <div className="col">
-            {progreso ? (
-              <Link to="/cart">
-                <button className="btn btn-primary">Ir al carrito</button>
-              </Link>
-            ) : (
-              <ItemCount initial={1} stock={10} onAdd={onAdd} />
-            )}
+            <ItemCount initial={1} stock={10} onAdd={onAdd} />
           </div>
         </div>
       </div>
