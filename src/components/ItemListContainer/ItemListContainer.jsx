@@ -2,31 +2,37 @@ import { useEffect, useState, useContext } from "react";
 import { getFetch } from "../../helpers/ItemDescription/itemDescription";
 import { Link, useParams } from "react-router-dom";
 import {
+  doc,
   collection,
-  getDocs,
   getFirestore,
+  getDoc,
+  getDocs,
   query,
   where,
 } from "firebase/firestore";
 
 const ItemListContainer = () => {
+  const [bool, setBool] = useState(true);
+
   const [productos, setProductos] = useState([]);
+  const [articulo, setArticulo] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const { categoriaId } = useParams();
 
   useEffect(() => {
     const db = getFirestore();
-    const queryCollection = collection(db, "items");
-    const queryCollectionFilter = categoriaId
-      ? query(queryCollection, where("categoria", "==", categoriaId))
-      : queryCollection;
-    getDocs(queryCollectionFilter)
+    const queryArticulos = collection(db, "productos");
+    getDocs(queryArticulos)
       .then((data) =>
-        setProductos(data.docs.map((item) => ({ id: item.id, ...item.data() })))
+        setProductos(
+          data.docs.map((articulo) => ({ id: articulo.id, ...articulo.data() }))
+        )
       )
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, [categoriaId]);
+  }, []);
+  console.log(productos);
   //   if (categoriaId) {
   //     getFetch()
   //       .then((resp) => {
@@ -53,12 +59,13 @@ const ItemListContainer = () => {
           <div className="col-md-2 p-1" key={prod.id}>
             <div className="card w-100 mt-2">
               <div className="card-header">
-                {`${prod.nombre} - ${prod.categoria}`}
+                {`${prod.name} - ${prod.category}`}
               </div>
               <div className="card-body">
-                {<img src={prod.foto} alt="" className="w-50" />}
+                {<img src={prod.picture} alt="" className="w-50" />}
               </div>
-              <div>Precio ${prod.precio}</div>
+              <div>Precio ${prod.price}</div>
+              <div>Stock {prod.stock}</div>
               <div className="card-footer">
                 <Link to={`/detalle/${prod.id}`}>
                   <button className="btn btn-outline-primary btn-block">
