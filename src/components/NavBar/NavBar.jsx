@@ -7,9 +7,10 @@ function NavBar() {
       <div className="container-fluid">
         <a className="nav-link active" aria-current="page" href="#categoria">
           <img
-            src="https://mail.google.com/mail/u/0?ui=2&ik=400e2ed626&attid=0.8&permmsgid=msg-f:1735809838817246247&th=1816d5da08547c27&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ_u4RIVJ8mofVAt0QBYaWBi1cBnewQ02iV1HfraEPHkj7RTeFbN733BLfLddukWqYl4Za9_5Va6oZG8ApiKFN6uJnFchNzM62vjEokcQlgWEUkpQXwlJhvlqbw&disp=emb"
-            alt=""
-            className="img-fluid"
+            src="https://dailyderm.com/wp-content/uploads/2019/06/cropped-Dailyderm-1.png"
+            width={200}
+            height={60}
+            alt="Logo Dailyderm"
           />
         </a>
         <NavLink

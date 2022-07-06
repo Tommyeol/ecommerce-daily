@@ -1,3 +1,4 @@
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../CartContext/CartContext";
@@ -5,6 +6,13 @@ import CartItems from "../CartItems/CartItems";
 
 const Cart = () => {
   const { cartList, emptyCart, priceTotal, iconCart } = useContext(CartContext);
+  // function realizarPedido(e) {
+  //   e.preventDefault();
+  //   let pedido = {};
+
+  //   pedido.buyer = { name: "Juan", email: "t@gmail.com", phone: "123456789" };
+  //   pedido.total = priceTotal();
+
   return (
     <>
       <div>
@@ -16,11 +24,19 @@ const Cart = () => {
           ))
         )}
       </div>
-      <button onClick={emptyCart}>Eliminar Carrito</button>
-      <p>El precio total de los productos es {priceTotal()}</p>
+      <button type="button" className="btn btn-primary" onClick={emptyCart}>
+        Eliminar Carrito
+      </button>
       <p>La cantidad total del carrito es {iconCart()}</p>
+      <p>El precio total de los productos es {priceTotal()}</p>
+      {/* <button className="btn btn-outline-success" onClick={realizarPedido}>
+          Terminar compra
+        </button> */}
     </>
   );
 };
+// const db = getFirestore();
+// const orderCollection = collection(db, "orders");
+// addDoc(orderCollection, pedido).then((resp) => console.log());
 
 export default Cart;

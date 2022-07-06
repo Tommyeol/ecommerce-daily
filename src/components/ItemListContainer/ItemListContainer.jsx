@@ -23,32 +23,38 @@ const ItemListContainer = () => {
   useEffect(() => {
     const db = getFirestore();
     const queryArticulos = collection(db, "productos");
-    getDocs(queryArticulos)
-      .then((data) =>
-        setProductos(
-          data.docs.map((articulo) => ({ id: articulo.id, ...articulo.data() }))
+
+    if (categoriaId) {
+      const queryArticulosFilter = query(
+        queryArticulos,
+        where("category", "==", categoriaId)
+      );
+
+      getDocs(queryArticulosFilter)
+        .then((data) =>
+          setProductos(
+            data.docs.map((articulo) => ({
+              id: articulo.id,
+              ...articulo.data(),
+            }))
+          )
         )
-      )
-      .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
-  }, []);
-  console.log(productos);
-  //   if (categoriaId) {
-  //     getFetch()
-  //       .then((resp) => {
-  //         setProductos(
-  //           resp.filter((producto) => producto.categoria === categoriaId)
-  //         );
-  //         setLoading(false);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   } else {
-  //     getFetch()
-  //       .then((resp) => setProductos(resp))
-  //       .catch((err) => console.log(err))
-  //       .finally(() => setLoading(false));
-  //   }
-  // });
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
+    } else {
+      getDocs(queryArticulos)
+        .then((data) =>
+          setProductos(
+            data.docs.map((articulo) => ({
+              id: articulo.id,
+              ...articulo.data(),
+            }))
+          )
+        )
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
+    }
+  });
 
   return (
     <div>
