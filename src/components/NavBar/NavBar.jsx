@@ -41,9 +41,7 @@ function NavBar() {
           </ul>
         </div>
         <Link to="/cart">
-          <button className="btn btn-outline-primary">
-            <Cart />
-          </button>
+          <button className="btn btn-outline-primary">Cart</button>
         </Link>
       </div>
     </nav>

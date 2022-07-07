@@ -10,21 +10,21 @@ const Cart = () => {
   //   e.preventDefault();
   //   let pedido = {};
 
-  //   pedido.buyer = { name: "Juan", email: "t@gmail.com", phone: "123456789" };
+  //   pedido.buyer = { name: "Juan", email: "t@gmail.com", phone: "1124578961" };
   //   pedido.total = priceTotal();
 
   return (
     <>
       <div>
         {cartList.lenght < 1 ? (
-          <p>Vacio</p>
+          <p>Empty</p>
         ) : (
           cartList.map((product) => (
             <CartItems key={product.producto.id} product={product.producto} />
           ))
         )}
       </div>
-      <button type="button" className="btn btn-primary" onClick={emptyCart}>
+      <button className="btn btn-primary" onClick={emptyCart}>
         Eliminar Carrito
       </button>
       <p>La cantidad total del carrito es {iconCart()}</p>
