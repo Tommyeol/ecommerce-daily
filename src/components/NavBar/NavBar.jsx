@@ -1,4 +1,3 @@
-import Cart from "../Cart/Cart";
 import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
