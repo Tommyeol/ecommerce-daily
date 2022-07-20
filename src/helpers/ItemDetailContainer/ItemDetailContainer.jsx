@@ -1,6 +1,5 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../../components/CartContext/CartContext";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { getFetch } from "../ItemDescription/itemDescription";
 
