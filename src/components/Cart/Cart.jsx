@@ -15,8 +15,6 @@ const Cart = () => {
     pedido.carrito = cartList;
     console.log(pedido);
     const docRef = await addDoc(collection(db, "orders"), pedido);
-    console.log("el id: ", docRef.id);
-    console.log(docRef);
   };
   return (
     <>
